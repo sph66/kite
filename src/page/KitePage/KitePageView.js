@@ -7,13 +7,7 @@ import { KiteSpotList } from "@/kite/components";
 export default function KitePageView() {
   return (
     <Box>
-      <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}
-      >
+      <Grid container direction="row" spacing={2}>
         <Grid item xs={12}>
           <Header />
         </Grid>
