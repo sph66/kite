@@ -1,7 +1,8 @@
 import "./App.css";
+import { KitePage } from "./page";
 
 function App() {
-  return null;
+  return <KitePage />;
 }
 
 export default App;
