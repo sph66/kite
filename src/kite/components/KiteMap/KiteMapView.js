@@ -1,7 +1,24 @@
+import { Grid } from "@mui/material";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+
+import { MapBox } from "./kiteMapStyle";
+
 export default function KiteMapView() {
+  const position = [45.85147792173941, 7.230746835985369];
   return (
-    <div>
-      <p>KiteMap</p>
-    </div>
+    <MapContainer
+      style={{
+        height: "700px",
+        width: "100%",
+      }}
+      center={position}
+      zoom={5}
+      scrollWheelZoom={false}
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
+      />
+    </MapContainer>
   );
 }
