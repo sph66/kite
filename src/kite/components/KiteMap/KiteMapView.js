@@ -1,7 +1,4 @@
-import { Grid } from "@mui/material";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-
-import { MapBox } from "./kiteMapStyle";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 export default function KiteMapView() {
   const position = [45.85147792173941, 7.230746835985369];
