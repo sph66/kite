@@ -3,6 +3,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Grid } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
+import { parseProbability } from "./utils";
+
 import {
   GridBox,
   LocationContainer,
@@ -12,7 +14,7 @@ import {
   StyledInputBase,
 } from "./kiteSpotListStyle";
 
-export default function KiteSpotListView() {
+export default function KiteSpotListView({ spots, isLoading, isError }) {
   const columns = [
     {
       field: "name",
@@ -25,37 +27,40 @@ export default function KiteSpotListView() {
       width: 190,
     },
     {
-      field: "latitude",
+      field: "lat",
       headerName: "Latitude",
       width: 190,
     },
     {
-      field: "longitude",
+      field: "long",
       headerName: "Longitude",
       width: 190,
     },
     {
-      field: "wind",
+      field: "probability",
+      valueGetter: parseProbability,
       headerName: "Wind Prob.",
       width: 190,
     },
     {
-      field: "when",
+      field: "month",
       headerName: "When to go",
       width: 195,
     },
   ];
-  const rows = [
-    { id: 1, name: "Little Rock" },
-    { id: 2, name: "Manassas" },
-    { id: 3, name: "Fort Pierce" },
-  ];
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Something went wrong</div>;
+  }
+
   return (
     <Grid>
       <LocationContainer>
-        <ParagraphLocation>
-          <p>Locations</p>
-        </ParagraphLocation>
+        <ParagraphLocation>Locations</ParagraphLocation>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
@@ -67,7 +72,7 @@ export default function KiteSpotListView() {
         </Search>
 
         <GridBox>
-          <DataGrid autoHeight columns={columns} rows={rows} sx={{ m: 2 }} />
+          <DataGrid autoHeight columns={columns} rows={spots} sx={{ m: 2 }} />
         </GridBox>
       </LocationContainer>
     </Grid>

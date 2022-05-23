@@ -18,10 +18,10 @@ export const GridBox = muiStyled(Box)(({ theme }) => ({
   "& .MuiDataGrid-columnHeaders": {
     backgroundColor: alpha(theme.palette.primary.main, 0.25),
   },
-  "& .MuiDataGrid-row:nth-child(even)": {
+  "& .MuiDataGrid-row:nth-of-type(even)": {
     backgroundColor: alpha(theme.palette.primary.main, 0.12),
   },
-  "& .MuiDataGrid-row:nth-child(even):hover": {
+  "& .MuiDataGrid-row:nth-of-type(even):hover": {
     backgroundColor: alpha(theme.palette.primary.main, 0.22),
   },
 }));

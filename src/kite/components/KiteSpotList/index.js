@@ -1,1 +1,1 @@
-export { default } from "./KiteSpotListView";
+export { default } from "./KiteSpotList";
