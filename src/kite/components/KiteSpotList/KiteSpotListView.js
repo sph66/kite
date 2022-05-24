@@ -7,14 +7,22 @@ import { parseProbability } from "./utils";
 
 import {
   GridBox,
+  InfoBox,
   LocationContainer,
   ParagraphLocation,
   Search,
   SearchIconWrapper,
   StyledInputBase,
 } from "./kiteSpotListStyle";
+import { Info } from "@mui/icons-material";
 
-export default function KiteSpotListView({ spots, isLoading, isError }) {
+export default function KiteSpotListView({
+  spots,
+  isLoading,
+  isError,
+  searchSpot,
+  handleSpotSearchOnChange,
+}) {
   const columns = [
     {
       field: "name",
@@ -49,14 +57,6 @@ export default function KiteSpotListView({ spots, isLoading, isError }) {
     },
   ];
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (isError) {
-    return <div>Something went wrong</div>;
-  }
-
   return (
     <Grid>
       <LocationContainer>
@@ -68,12 +68,26 @@ export default function KiteSpotListView({ spots, isLoading, isError }) {
           <StyledInputBase
             placeholder="Search…"
             inputProps={{ "aria-label": "search" }}
+            value={searchSpot}
+            onChange={(e) => {
+              {
+                console.log(e.target.value);
+                handleSpotSearchOnChange(e.target.value);
+              }
+            }}
           />
         </Search>
 
-        <GridBox>
-          <DataGrid autoHeight columns={columns} rows={spots} sx={{ m: 2 }} />
-        </GridBox>
+        <InfoBox>
+          {isError && <div>Something went wrong</div>}
+          {isLoading && <div>Loading...</div>}
+        </InfoBox>
+
+        {!isLoading && !isError && (
+          <GridBox>
+            <DataGrid autoHeight columns={columns} rows={spots} sx={{ m: 2 }} />
+          </GridBox>
+        )}
       </LocationContainer>
     </Grid>
   );

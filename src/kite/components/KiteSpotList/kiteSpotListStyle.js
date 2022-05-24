@@ -3,6 +3,10 @@ import InputBase from "@mui/material/InputBase";
 import { styled as muiStyled, alpha } from "@mui/material/styles";
 import styled from "styled-components";
 
+export const InfoBox = styled.div`
+  margin: 40px 40px 40px 20px;
+`;
+
 export const LocationContainer = styled.div`
   margin: 40px 40px 40px 40px;
 `;
