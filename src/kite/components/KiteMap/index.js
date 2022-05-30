@@ -1,1 +1,1 @@
-export { default } from "./KiteMapView";
+export { default } from "./KiteMap";

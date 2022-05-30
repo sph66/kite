@@ -10,6 +10,7 @@ export const findAllSpots = async (searchValue) => {
     return spots;
   }
 
+  console.log(spots);
   const pattern = new RegExp(`${searchValue}+`, "i");
 
   return spots.filter((spot) => {

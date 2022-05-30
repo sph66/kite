@@ -1,5 +1,8 @@
+import { useGetKiteSpots } from "../../hooks/kiteHooks";
 import KiteMapView from "./KiteMapView";
 
 export default function KiteMap() {
-  return <KiteMapView />;
+  const { spots } = useGetKiteSpots();
+
+  return <KiteMapView spots={spots} />;
 }

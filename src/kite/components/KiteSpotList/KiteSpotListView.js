@@ -70,10 +70,7 @@ export default function KiteSpotListView({
             inputProps={{ "aria-label": "search" }}
             value={searchSpot}
             onChange={(e) => {
-              {
-                console.log(e.target.value);
-                handleSpotSearchOnChange(e.target.value);
-              }
+              handleSpotSearchOnChange(e.target.value);
             }}
           />
         </Search>
