@@ -8,8 +8,9 @@ import Subtitle from "./Subtitle";
 import Title from "./Title";
 
 import { FavoriteButton } from "./kiteMapStyle";
+import Filter from "./Filter";
 
-export default function KiteMapView({ spots }) {
+export default function KiteMapView({ spots, handleFilter }) {
   const centerPosition = [45.85147792173941, 7.230746835985369];
 
   const markers = spots.map((spot) => (
@@ -51,11 +52,13 @@ export default function KiteMapView({ spots }) {
       style={{
         height: "700px",
         width: "100%",
+        position: "relative",
       }}
       center={centerPosition}
       zoom={5}
       scrollWheelZoom={false}
     >
+      <Filter handleFilter={handleFilter} />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
