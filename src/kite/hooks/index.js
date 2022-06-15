@@ -1,1 +1,5 @@
-export { useGetKiteSpots } from "./kiteHooks";
+export {
+  useGetKiteSpots,
+  useAddToFavourites,
+  useRemoveFromFavourites,
+} from "./kiteHooks";

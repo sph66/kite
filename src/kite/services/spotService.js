@@ -1,4 +1,3 @@
-import { MilitaryTechSharp, SpokeTwoTone } from "@mui/icons-material";
 import axios from "axios";
 
 export const findAllSpots = async (searchValue, filters) => {
